@@ -1,0 +1,192 @@
+{
+  "current": {
+    "temperature": 36,
+    "description": "clear sky",
+    "icon": "01d",
+    "date": "Mar 12",
+    "weekday": "Wednesday",
+    "location": {
+      "city": "Rajkot",
+      "country": "IN"
+    }
+  },
+  "forecast": [
+    {
+      "date": "Mar 13",
+      "weekday": "Thursday",
+      "temperature": 34,
+      "description": "clear sky",
+      "icon": "01d"
+    },
+    {
+      "date": "Mar 14",
+      "weekday": "Friday",
+      "temperature": 34,
+      "description": "clear sky",
+      "icon": "01d"
+    },
+    {
+      "date": "Mar 15",
+      "weekday": "Saturday",
+      "temperature": 32,
+      "description": "clear sky",
+      "icon": "01d"
+    },
+    {
+      "date": "Mar 16",
+      "weekday": "Sunday",
+      "temperature": 31,
+      "description": "clear sky",
+      "icon": "01d"
+    },
+    {
+      "date": "Mar 17",
+      "weekday": "Monday",
+      "temperature": 30,
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ],
+  "highlights": {
+    "airQuality": {
+      "category": "Moderate",
+      "value": 3,
+      "components": {
+        "pm2_5": 25.91,
+        "so2": 6.5,
+        "no2": 3.09,
+        "o3": 135.9
+      }
+    },
+    "sunTime": {
+      "sunrise": "06:58 AM",
+      "sunset": "06:54 PM"
+    },
+    "humidity": {
+      "value": 14,
+      "unit": "%"
+    },
+    "pressure": {
+      "value": 1008,
+      "unit": "hPa"
+    },
+    "visibility": {
+      "value": 10,
+      "unit": "km"
+    },
+    "feelsLike": {
+      "value": 34,
+      "unit": "°C"
+    }
+  },
+  "hourly": {
+    "temperature": [
+      {
+        "time": "08:30 PM",
+        "temperature": 36,
+        "icon": "01n",
+        "description": "clear sky"
+      },
+      {
+        "time": "11:30 PM",
+        "temperature": 32,
+        "icon": "01n",
+        "description": "clear sky"
+      },
+      {
+        "time": "02:30 AM",
+        "temperature": 27,
+        "icon": "01n",
+        "description": "clear sky"
+      },
+      {
+        "time": "05:30 AM",
+        "temperature": 26,
+        "icon": "01n",
+        "description": "clear sky"
+      },
+      {
+        "time": "08:30 AM",
+        "temperature": 26,
+        "icon": "01d",
+        "description": "clear sky"
+      },
+      {
+        "time": "11:30 AM",
+        "temperature": 34,
+        "icon": "01d",
+        "description": "clear sky"
+      },
+      {
+        "time": "02:30 PM",
+        "temperature": 37,
+        "icon": "01d",
+        "description": "clear sky"
+      },
+      {
+        "time": "05:30 PM",
+        "temperature": 37,
+        "icon": "01d",
+        "description": "clear sky"
+      }
+    ],
+    "wind": [
+      {
+        "time": "08:30 PM",
+        "speed": 21,
+        "direction": 289,
+        "icon": "west",
+        "gust": 31
+      },
+      {
+        "time": "11:30 PM",
+        "speed": 19,
+        "direction": 297,
+        "icon": "northwest",
+        "gust": 36
+      },
+      {
+        "time": "02:30 AM",
+        "speed": 14,
+        "direction": 292,
+        "icon": "west",
+        "gust": 26
+      },
+      {
+        "time": "05:30 AM",
+        "speed": 14,
+        "direction": 288,
+        "icon": "west",
+        "gust": 23
+      },
+      {
+        "time": "08:30 AM",
+        "speed": 17,
+        "direction": 309,
+        "icon": "northwest",
+        "gust": 30
+      },
+      {
+        "time": "11:30 AM",
+        "speed": 21,
+        "direction": 306,
+        "icon": "northwest",
+        "gust": 26
+      },
+      {
+        "time": "02:30 PM",
+        "speed": 22,
+        "direction": 303,
+        "icon": "northwest",
+        "gust": 24
+      },
+      {
+        "time": "05:30 PM",
+        "speed": 24,
+        "direction": 288,
+        "icon": "west",
+        "gust": 27
+      }
+    ]
+  }
+}
