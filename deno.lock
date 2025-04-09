@@ -1,10 +1,12 @@
 {
   "version": "4",
   "specifiers": {
+    "npm:@lucide/svelte@0.487": "0.487.0_svelte@5.19.3__acorn@8.14.0",
     "npm:@sveltejs/adapter-auto@3": "3.3.1_@sveltejs+kit@2.16.1__@sveltejs+vite-plugin-svelte@4.0.4___svelte@5.19.3____acorn@8.14.0___vite@5.4.14__svelte@5.19.3___acorn@8.14.0__vite@5.4.14_@sveltejs+vite-plugin-svelte@4.0.4__svelte@5.19.3___acorn@8.14.0__vite@5.4.14_svelte@5.19.3__acorn@8.14.0_vite@5.4.14",
     "npm:@sveltejs/kit@2": "2.16.1_@sveltejs+vite-plugin-svelte@4.0.4__svelte@5.19.3___acorn@8.14.0__vite@5.4.14_svelte@5.19.3__acorn@8.14.0_vite@5.4.14",
     "npm:@sveltejs/vite-plugin-svelte@4": "4.0.4_svelte@5.19.3__acorn@8.14.0_vite@5.4.14",
     "npm:autoprefixer@^10.4.20": "10.4.20_postcss@8.5.1",
+    "npm:lucide-svelte@0.487": "0.487.0_svelte@5.19.3__acorn@8.14.0",
     "npm:svelte@5": "5.19.3_acorn@8.14.0",
     "npm:tailwindcss@^3.4.9": "3.4.17_postcss@8.5.1",
     "npm:vite@^5.4.11": "5.4.14"
@@ -122,6 +124,12 @@
       "dependencies": [
         "@jridgewell/resolve-uri",
         "@jridgewell/sourcemap-codec"
+      ]
+    },
+    "@lucide/svelte@0.487.0_svelte@5.19.3__acorn@8.14.0": {
+      "integrity": "sha512-27b/wUzWrqDJu97+1iSV2X8L2JGRWH/mAWAjHgazWxhGxVu/kS0p3SbNu6w3skNmQNEku33EKU1v44IVwULzbw==",
+      "dependencies": [
+        "svelte"
       ]
     },
     "@nodelib/fs.scandir@2.1.5": {
@@ -589,6 +597,12 @@
     "lru-cache@10.4.3": {
       "integrity": "sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ=="
     },
+    "lucide-svelte@0.487.0_svelte@5.19.3__acorn@8.14.0": {
+      "integrity": "sha512-ags7npK5Nv6AI9LBpAbijpmHxcO9hOeP0/7yJ72++AOBWmwB0X7LqNQFJk1PBe4wM0UsgklWQdyRZyx8s9xyXg==",
+      "dependencies": [
+        "svelte"
+      ]
+    },
     "magic-string@0.30.17": {
       "integrity": "sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==",
       "dependencies": [
@@ -987,10 +1001,12 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
+        "npm:@lucide/svelte@0.487",
         "npm:@sveltejs/adapter-auto@3",
         "npm:@sveltejs/kit@2",
         "npm:@sveltejs/vite-plugin-svelte@4",
         "npm:autoprefixer@^10.4.20",
+        "npm:lucide-svelte@0.487",
         "npm:svelte@5",
         "npm:tailwindcss@^3.4.9",
         "npm:vite@^5.4.11"

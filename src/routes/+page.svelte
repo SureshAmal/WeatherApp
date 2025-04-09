@@ -10,6 +10,7 @@
   let loading = $state(true);
   let error = $state(null);
   let processedData = $state(null);
+  import { MessageCircle, Mail, Share2 } from 'lucide-svelte';
 
   async function fetchWeatherData(city) {
     loading = true;
@@ -98,13 +99,7 @@
     return directions[index];
   }
 
-  let cities = [
-    { name: "London", country: "UK" },
-    { name: "New York", country: "US" },
-    { name: "Tokyo", country: "JP" },
-    { name: "Sydney", country: "AU" },
-    { name: "Rajkot", country: "IN" },
-  ];
+
 
   let showCityDropdown = $state(false);
   let selectCity = function (city) {
@@ -116,13 +111,39 @@
   function toggleCityDropdown() {
     showCityDropdown = !showCityDropdown;
   }
+
+  function getCurrentWeatherMessage() {
+  const currentCity = processedData ? processedData.current.location.city : "City";
+  const currentTemp = processedData ? processedData.current.temperature : null;
+  return `Current Temperature in ${currentCity}: ${currentTemp}°C.`;
+}
+
+function shareOnWhatsApp() {
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(getCurrentWeatherMessage())}`;
+  window.open(whatsappUrl, "_blank");
+}
+
+function shareViaEmail() {
+  const currentCity = processedData ? processedData.current.location.city : "City";
+  const emailUrl = `mailto:?subject=Weather Update: ${currentCity}&body=${encodeURIComponent(getCurrentWeatherMessage())}`;
+  window.location.href = emailUrl;
+}
+
+function shareOnTelegram() {
+  const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(getCurrentWeatherMessage())}`;
+  window.open(telegramUrl, "_blank");
+}
 </script>
 
 <svelte:window on:citySelected={handleCitySelected} />
+
 <main
   class="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 p-4 md:p-6"
 >
-  <div class="max-w-6xl mx-auto">
+ 
+
+
+  <div class="max-w-6xl">
     <!-- Loading state -->
     {#if loading}
       <div class="text-center py-10">
@@ -136,37 +157,79 @@
       <!-- Main content -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <!-- Current weather card -->
-        <div class="bg-white rounded-2xl shadow-md p-6 lg:col-span-1">
-          <div class="flex flex-col items-center">
-            <div class="text-sm text-gray-500 mb-1">
-              {processedData.current.weekday}, {processedData.current.date}
+        <div class="max-w-9xl ">
+          {#if loading}
+            <div class="text-center py-10">
+              <p>Loading weather data...</p>
             </div>
-            <h2 class="text-xl font-semibold mb-2">
-              {processedData.current.location.city}, {processedData.current
-                .location.country}
-            </h2>
-
-            <img
-              src={getWeatherIconUrl(processedData.current.icon)}
-              alt={processedData.current.description}
-              class="w-24 h-20 my-2"
-            />
-
-            <div class="text-3xl font-bold mb-2">
-              {processedData.current.temperature}°C
+          {:else if error}
+            <div class="text-center py-10 text-red-500">
+              <p>Error: {error}</p>
             </div>
-            <div class="text-gray-600 capitalize">
-              {processedData.current.description}
+          {:else if processedData}
+            <!-- Main content -->
+  
+              <div class="bg-white rounded-2xl shadow-md p-6 lg:col-span-1 ">
+                <div class="flex flex-col items-center">
+                  <div class="text-sm text-gray-500 mb-1">
+                    {processedData.current.weekday}, {processedData.current.date}
+                  </div>
+                  <h2 class="text-xl font-semibold mb-2">
+                    {processedData.current.location.city}, {processedData.current
+                      .location.country}
+                  </h2>
+      
+                  <img
+                    src={getWeatherIconUrl(processedData.current.icon)}
+                    alt={processedData.current.description}
+                    class="w-24 h-20 my-2"
+                  />
+                  <div class="text-3xl font-bold mb-2">
+                    {processedData.current.temperature}°C
+                  </div>
+                  <div class="text-gray-600 capitalize">
+                    {processedData.current.description}
+                  </div>
+      
+                  <div class="flex items-center mt-4 text-sm text-gray-700">
+                    <span
+                      >Feels like: {processedData.highlights.feelsLike.value}°C</span
+                    >
+                  </div>
+      
+                  <!-- Share Buttons -->
+                  <div class="mt-6 space-x-4 flex lg:flex-row lg:space-x-6">
+                    <!-- WhatsApp button with Lucide icon -->
+                    <button
+                      onclick={shareOnWhatsApp}
+                      class="bg-green-500 flex flex-col items-center text-white px-2 py-1 rounded-md hover:bg-green-600 transition"
+                    >
+                      <MessageCircle class="w-5 h-5 mb-2" /> <!-- Icon at the top -->
+                      <span class="text-xs">WhatsApp</span> <!-- Text at the bottom -->
+                    </button>
+                  
+                    <!-- Email button with Lucide icon -->
+                    <button
+                      onclick={shareViaEmail}
+                      class="bg-blue-500 flex flex-col items-center text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+                    >
+                      <Mail class="w-5 h-5 mb-2" /> <!-- Icon at the top -->
+                      <span class="text-xs">Email</span> <!-- Text at the bottom -->
+                    </button>
+                  
+                    <!-- Telegram button with Lucide icon -->
+                    <button
+                      onclick={shareOnTelegram}
+                      class="bg-blue-400 flex flex-col items-center text-white px-4 py-2 rounded-md hover:bg-blue-500 transition"
+                    >
+                      <Share2 class="w-5 h-5 mb-2" /> <!-- Icon at the top -->
+                      <span class="text-xs">Telegram</span> <!-- Text at the bottom -->
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {/if}
             </div>
-
-            <div class="flex items-center mt-4 text-sm text-gray-700">
-              <span
-                >Feels like: {processedData.highlights.feelsLike.value}°C</span
-              >
-            </div>
-          </div>
-        </div>
-
         <!-- 5 day forecast -->
         <div class="bg-white rounded-2xl shadow-md p-6 lg:col-span-2">
           <h2 class="text-lg font-semibold mb-4">5-Day Forecast</h2>

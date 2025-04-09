@@ -8,6 +8,10 @@
 		"build": "vite build",
 		"preview": "vite preview"
 	},
+	"dependencies": {
+		"@lucide/svelte": "^0.487.0",
+		"lucide-svelte": "^0.487.0"
+	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
